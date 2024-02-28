@@ -16,6 +16,8 @@ const ShoppingList = ({ cart, updateCart }) => {
 
     const [plantListFiltered, setPlantListFiltered] = useState([]);
 
+    const addToCart = (nom, price) => { }
+
     useEffect(() => {
         if (categorySelected === '') { setPlantListFiltered(plantList) }
         else {
@@ -49,8 +51,10 @@ const ShoppingList = ({ cart, updateCart }) => {
                                 id={plant.id}
                                 water={plant.water}
                                 light={plant.light}
-                                category={plant.category} />
-                            <div className='btn btn-secondary' onClick={() => addToCart(name, price)}>Ajouter</div>
+                                category={plant.category}
+                                price={plant.price} />
+
+                            <div className='btn btn-secondary' onClick={() => addToCart(plant.name, plant.price)}>Ajouter</div>
                         </div>
                     ))}
                 </div>

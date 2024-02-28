@@ -16,7 +16,7 @@ const App = () => {
     <div className='container'>
       <Banner />
       <div className="row">
-        <div className="col-2 text-center">
+        <div className="col-2 text-center" style={{ background: '#31b57' }}>
           <Cart cart={cart} updateCart={updateCart} />
         </div>
         <div className="col-10 text-center">
