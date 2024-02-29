@@ -1,18 +1,6 @@
-.lmj-plant-item {
-  border: solid 2px black;
-  border-radius: 10px;
-  height: 150px;
-  width: 150px;
-  margin: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  position: relative;
-}
-
-.lmj-plant-item-cover {
-  height: 220px;
-  width: 220px;
-  border-radius: 20px;
+.product {
+  border: solid 1px black;
+  border-radius: 6px;
+  background-color: burlywood;
+  height: 300px;
 }

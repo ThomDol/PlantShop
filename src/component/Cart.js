@@ -25,19 +25,19 @@ const Cart = ({ cart, updateCart }) => {
       {isOpen ? (
         <div className="lmj-cart" style={{ opacity: '1' }}>
           <div></div>
-          <div className="btn btn-light" onClick={() => setIsOpen(false)}>
+          <div className="btn btn-light closeButton" onClick={() => setIsOpen(false)}>
             Fermer
           </div>
           <br />
           <br />
           <br />
-          <h2 style={{ opacity: '1' }}>Panier</h2>
+          <h2 className="panier" >Panier</h2>
           {cart.map((plant) => (
             <div style={{ opacity: '1' }}>
               {plant.name} x {plant.amount}
             </div>
           ))}
-          <div style={{ opacity: '1' }}>Total : {total} euros</div>
+          <div className="total">Total : {total} euros</div>
           <br />
           <br />
 

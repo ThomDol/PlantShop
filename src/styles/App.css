@@ -1,15 +1,11 @@
-.row {
-    display: flex; /* Utiliser flexbox pour aligner les éléments enfants */
-  }
-  
 .shoppingListContent {
-    flex: 1; /* Les deux divs occupent la même largeur */
-    height:100%;
-    overflow-y: auto;
+  flex: 1; /* Les deux divs occupent la même largeur */
+  height: 100%;
+  overflow-y: auto;
 }
 
-.cart{
-    flex: 0 0 auto; /* Div de gauche non flexible, ne prendra pas l'espace supplémentaire */
+.cart {
+  flex: 0 0 auto; /* Div de gauche non flexible, ne prendra pas l'espace supplémentaire */
   height: 100vh; /* Hauteur de la div de gauche égale à la hauteur de la fenêtre */
   overflow: hidden; /* Pour masquer tout contenu débordant */
 }

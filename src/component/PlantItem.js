@@ -18,7 +18,7 @@ const PlantItem = ({ name, cover, price, category, id, water, light, cart, updat
 
 
   return (
-    <div key={id} className="card" style={{ width: "18rem" }}>
+    <div key={id} className="card product" style={{ width: "18rem" }}>
       <img
         src={`${cover}`}
         className="card-img-top"
@@ -30,7 +30,7 @@ const PlantItem = ({ name, cover, price, category, id, water, light, cart, updat
         <p>{price} euros</p>
         <p>
           <span
-            className="bg-warning border rounded p-1"
+            className="bg-warning border rounded "
             style={{ width: "auto", height: "auto", fontSize: "10px" }}
           >
             {category}

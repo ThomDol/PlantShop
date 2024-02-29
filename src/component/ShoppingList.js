@@ -3,7 +3,6 @@ import { plantList } from "../data/data";
 import "../styles/ShoppingList.css";
 import PlantItem from "./PlantItem";
 import { useState } from "react";
-import { useRef } from "react";
 
 const ShoppingList = ({ cart, updateCart }) => {
   const categories = plantList.reduce(
@@ -41,35 +40,37 @@ const ShoppingList = ({ cart, updateCart }) => {
 
   return (
     <div>
-      <div className="col-3 mx-auto filtre">
+      <div className="col-3 mx-auto">
         Choisissez le type de plante :
-        <div className="row">
-          {categories.map((cat) => (categorySelected === cat ?
-            <div
-              className="btn btn-secondary m-2"
-              onClick={() => setCategorySelected(cat)} style={{ color: 'black', fontWeight: 'bold' }}
-            >
-              {cat}
-            </div> : <div
-              className="btn btn-secondary m-2"
-              onClick={() => setCategorySelected(cat)}
-            >
-              {cat}
-            </div>
-          ))}
+      </div>
+      <div className="row justify-content-around">
+        {categories.map((cat) => (categorySelected === cat ?
           <div
-            onClick={() => setCategorySelected("")}
-            className="btn btn-warning m-2"
+            className="btn btn-secondary m-2 col-2"
+            onClick={() => setCategorySelected(cat)} style={{ color: 'black', fontWeight: 'bold' }}
           >
-            Annuler filtre
+            {cat}
+          </div> : <div
+            className="btn btn-secondary m-2 col-2"
+            onClick={() => setCategorySelected(cat)}
+          >
+            {cat}
           </div>
-        </div>
+        ))}
+      </div>
+      <div
+        onClick={() => setCategorySelected("")}
+        className="btn btn-warning m-2 col-2 mx-auto"
+      >
+        Annuler filtre
       </div>
 
-      <div className="col-10 mt-5 listPlant">
+
+
+      <div className="col-12 listPlant">
         <div className="row justify-content-around">
           {plantListFiltered.map((plant) => (
-            <div className="col-3 m-3">
+            <div className="col-3 mb-3">
               <PlantItem
                 name={plant.name}
                 cover={plant.cover}
