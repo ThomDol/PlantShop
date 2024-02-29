@@ -1,15 +1,25 @@
 import React from "react";
 import CareScale from "./CareScale";
 
-const PlantItem = ({ name, cover, price, category, id, water, light }) => {
-  const displayUrl = (e) => {
-    console.log(e.target.src);
+const PlantItem = ({ name, cover, price, category, id, water, light, cart, updateCart }) => {
+
+  const addToCart = (name, price) => {
+    const currentPlantSaved = cart.find((plant) => plant.name === name);
+    if (currentPlantSaved) {
+      const filteredPlantSaved = cart.filter((plant) => plant.name != name);
+      updateCart([
+        ...filteredPlantSaved,
+        { name, price, amount: currentPlantSaved.amount + 1 },
+      ]);
+    } else {
+      updateCart([...cart, { name, price, amount: 1 }]);
+    }
   };
+
 
   return (
     <div key={id} className="card" style={{ width: "18rem" }}>
       <img
-        onClick={displayUrl}
         src={`${cover}`}
         className="card-img-top"
         alt={`${name} cover`}
@@ -32,6 +42,12 @@ const PlantItem = ({ name, cover, price, category, id, water, light }) => {
         <p className="card-text">
           <CareScale scaleValue={light} careType="light" />
         </p>
+        <div
+          className="btn btn-secondary mx-auto"
+          onClick={() => addToCart(name, price)}
+        >
+          Ajouter
+        </div>
       </div>
     </div>
   );

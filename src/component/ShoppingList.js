@@ -44,8 +44,13 @@ const ShoppingList = ({ cart, updateCart }) => {
       <div className="col-3 mx-auto filtre">
         Choisissez le type de plante :
         <div className="row">
-          {categories.map((cat) => (
+          {categories.map((cat) => (categorySelected === cat ?
             <div
+              className="btn btn-secondary m-2"
+              onClick={() => setCategorySelected(cat)} style={{ color: 'black', fontWeight: 'bold' }}
+            >
+              {cat}
+            </div> : <div
               className="btn btn-secondary m-2"
               onClick={() => setCategorySelected(cat)}
             >
@@ -64,7 +69,7 @@ const ShoppingList = ({ cart, updateCart }) => {
       <div className="col-10 mt-5 listPlant">
         <div className="row justify-content-around">
           {plantListFiltered.map((plant) => (
-            <div className="col-3 m-2">
+            <div className="col-3 m-3">
               <PlantItem
                 name={plant.name}
                 cover={plant.cover}
@@ -73,14 +78,9 @@ const ShoppingList = ({ cart, updateCart }) => {
                 light={plant.light}
                 category={plant.category}
                 price={plant.price}
+                cart={cart}
+                updateCart={updateCart}
               />
-              <br></br>
-              <div
-                className="btn btn-secondary mx-auto text-center"
-                onClick={() => addToCart(plant.name, plant.price)}
-              >
-                Ajouter
-              </div>
             </div>
           ))}
         </div>

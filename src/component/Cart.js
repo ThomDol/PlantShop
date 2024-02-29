@@ -21,9 +21,9 @@ const Cart = ({ cart, updateCart }) => {
   }, [cart]);
 
   return (
-    <div className="body">
+    <div className="body" >
       {isOpen ? (
-        <div className="lmj-cart">
+        <div className="lmj-cart" style={{ opacity: '1' }}>
           <div></div>
           <div className="btn btn-light" onClick={() => setIsOpen(false)}>
             Fermer
@@ -31,22 +31,22 @@ const Cart = ({ cart, updateCart }) => {
           <br />
           <br />
           <br />
-          <h2>Panier</h2>
+          <h2 style={{ opacity: '1' }}>Panier</h2>
           {cart.map((plant) => (
-            <div>
+            <div style={{ opacity: '1' }}>
               {plant.name} x {plant.amount}
             </div>
           ))}
-          <div>Total : {total}</div>
+          <div style={{ opacity: '1' }}>Total : {total} euros</div>
           <br />
           <br />
 
-          <div className="btn btn-light" onClick={() => updateCart([])}>
+          <div className="btn btn-light" onClick={() => updateCart([])} style={{ opacity: '1' }}>
             Annuler saisie
           </div>
         </div>
       ) : (
-        <div className="btn btn-light mt-3" onClick={() => setIsOpen(true)}>
+        <div className="btn btn-light mt-3" onClick={() => setIsOpen(true)} style={{ opacity: '1' }}>
           Ouvrir le Panier
         </div>
       )}
