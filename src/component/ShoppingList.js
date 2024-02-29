@@ -3,6 +3,7 @@ import { plantList } from "../data/data";
 import "../styles/ShoppingList.css";
 import PlantItem from "./PlantItem";
 import { useState } from "react";
+import { useRef } from "react";
 
 const ShoppingList = ({ cart, updateCart }) => {
   const categories = plantList.reduce(
@@ -40,7 +41,7 @@ const ShoppingList = ({ cart, updateCart }) => {
 
   return (
     <div>
-      <div className="col-3 mx-auto">
+      <div className="col-3 mx-auto filtre">
         Choisissez le type de plante :
         <div className="row">
           {categories.map((cat) => (
@@ -60,7 +61,7 @@ const ShoppingList = ({ cart, updateCart }) => {
         </div>
       </div>
 
-      <div className="col-10 mt-5">
+      <div className="col-10 mt-5 listPlant">
         <div className="row justify-content-around">
           {plantListFiltered.map((plant) => (
             <div className="col-3 m-2">

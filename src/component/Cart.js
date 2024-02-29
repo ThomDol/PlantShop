@@ -9,12 +9,12 @@ const Cart = ({ cart, updateCart }) => {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    if (cart != null && cart.length > 0) {
-      setTotal((prevTot) => {
-        return (
-          prevTot + cart[cart.length - 1].amount * cart[cart.length - 1].price
-        );
+    if (cart.length > 0) {
+      let newTot = 0;
+      cart.forEach((plant) => {
+        newTot += plant.amount * plant.price;
       });
+      setTotal(newTot);
     } else {
       setTotal(0);
     }

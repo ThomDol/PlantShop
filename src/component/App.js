@@ -12,10 +12,16 @@ const App = () => {
     <div className="container main">
       <Banner />
       <div className="row">
-        <div className="col-2 text-center" style={{ background: "#31b57" }}>
+        <div
+          className="col-2 text-center cart"
+          style={{ background: "#31b57" }}
+        >
           <Cart cart={cart} updateCart={updateCart} />
         </div>
-        <div className="col-10 text-center">
+        <div
+          className="col-10 text-center shoppingListContent"
+          style={{ scrollBehavior: "auto" }}
+        >
           <ShoppingList cart={cart} updateCart={updateCart} />
         </div>
       </div>
